@@ -11,7 +11,7 @@ int countChar(char ch, string& s) {
     return cnt;
 }
 
-
+/* using array
 int main(){
     string s;
     getline(cin, s);
@@ -30,6 +30,31 @@ int main(){
 
         // fetch
         cout << hash[ch] << endl; // ch - 'a' or ch - 'A'
+
+    }
+
+    return 0;
+} */
+
+// using map
+int main(){
+    string s;
+    getline(cin, s);
+
+    // pre compute
+    map<char, int> mpp; // use hash[26] for only lowercase or only uppercase str
+    for(int i = 0; i < s.size(); i++){
+        mpp[s[i]] += 1; // s[i] - 'a' or s[i] - 'A'
+    }
+
+    int q;
+    cin >> q;
+    while(q--){
+        char ch;
+        cin >> ch;
+
+        // fetch
+        cout << mpp[ch] << endl; // ch - 'a' or ch - 'A'
 
     }
 
